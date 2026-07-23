@@ -373,10 +373,10 @@ function render(){
           <span>${c.km.toLocaleString("es-GT")} km</span>
           <span>${c.trans}</span>
         </div>
-        <div class="price-row">
-          <span class="price mono">${fmtQ(c.precio)}</span>
-          onclick="alert('Contacto: +502 3942-3690 para preguntar por el ${c.marca} ${c.modelo}')"
-        </div>
+       <div class="price-row">
+  <span class="price mono">${fmtQ(c.precio)}</span>
+  <button class="card-cta" onclick="alert('Contacto: +502 3942-3690 para preguntar por el ${c.marca} ${c.modelo}')">Contactar</button>
+</div>
       </div>
     </div>
   `).join("") : `<div class="empty">No hay unidades que coincidan con esa búsqueda. Prueba con otro filtro.</div>`;
