@@ -39,7 +39,6 @@
   a{color:inherit;text-decoration:none;}
   .streak-bar{height:4px;width:100%;background:var(--streak);}
 
-  /* NAV */
   header{
     position:sticky;top:0;z-index:50;
     background:rgba(11,7,16,0.85);
@@ -59,17 +58,24 @@
     display:block;font-family:'Manrope';font-weight:600;font-size:10px;
     letter-spacing:0.14em;color:var(--lilac);text-transform:uppercase;
   }
-  #mainNav{display:flex;align-items:center;gap:32px;}
-.nav-buttons{display:flex;gap:12px;align-items:center;}
-  nav ul{list-style:none;display:flex;gap:32px;margin:0;padding:0;}
+  nav ul{list-style:none;display:flex;flex-direction:column;gap:16px;margin:0;padding:0;width:100%;}
   nav a{font-size:14px;font-weight:600;color:var(--mist);opacity:0.8;transition:opacity .2s;}
   nav a:hover{opacity:1;}
   .nav-cta{
+    display:block;
     background:var(--gold);color:#3a2100;padding:10px 20px;border-radius:999px;
-    font-weight:700;font-size:14px;white-space:nowrap;
+    font-weight:700;font-size:14px;white-space:nowrap;text-align:center;
   }
+  #mainNav{
+    display:none;position:fixed;bottom:86px;left:24px;z-index:100;
+    background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:20px;flex-direction:column;align-items:flex-start;gap:16px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.5);min-width:220px;
+  }
+  #mainNav.open{display:flex;}
+  .nav-buttons{display:flex;flex-direction:column;gap:12px;width:100%;}
+  .nav-buttons a{width:100%;text-align:center;}
 
-  /* HERO */
   .hero{
     position:relative;overflow:hidden;
     padding:110px 32px 90px;
@@ -119,7 +125,6 @@
     opacity:0.9;
   }
 
-  /* FILTER BAR */
   .filters{
     position:sticky;top:65px;z-index:40;
     background:var(--panel);border-bottom:1px solid var(--line);
@@ -140,7 +145,6 @@
   }
   .count-tag b{color:var(--gold);}
 
-  /* INVENTORY */
   .inventory{max-width:1180px;margin:0 auto;padding:56px 32px 90px;}
   .section-head{margin-bottom:32px;}
   .section-head h2{font-size:28px;font-weight:700;}
@@ -188,17 +192,6 @@
     grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--lilac);
   }
 
-  /* CTA STRIP */
-  .cta-strip{
-    max-width:1180px;margin:0 auto 90px;padding:44px 40px;border-radius:24px;
-    background:linear-gradient(120deg, var(--plum), var(--panel-2));
-    border:1px solid var(--line);
-    display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
-  }
-  .cta-strip h3{font-size:24px;font-weight:700;max-width:420px;}
-  .cta-strip p{color:var(--lilac);margin-top:8px;font-size:14px;max-width:420px;}
-
-  /* FOOTER */
   footer{border-top:1px solid var(--line);padding:48px 32px 32px;}
   .footer-inner{
     max-width:1180px;margin:0 auto;
@@ -212,21 +205,9 @@
   }
 
   @media (max-width:720px){
-  #menuToggle{display:block !important;}
-  #mainNav{
-    display:none;position:absolute;top:100%;left:0;right:0;
-    background:var(--panel);flex-direction:column;align-items:flex-start;
-    padding:20px 32px;gap:20px;border-bottom:1px solid var(--line);
+    .hero{padding:80px 20px 60px;}
+    .filters{position:static;}
   }
-  #mainNav.open{display:flex;}
-  nav ul{flex-direction:column;gap:16px;}
-  .nav-buttons{flex-direction:column;width:100%;}
-  .nav-buttons a{width:100%;text-align:center;}
-  header{position:sticky;}
-  .hero{padding:80px 20px 60px;}
-  .filters{position:static;}
-  .cta-strip{flex-direction:column;align-items:flex-start;}
-}
 </style>
 </head>
 <body>
@@ -235,19 +216,20 @@
 <header>
 <div class="nav-inner">
   <div class="wordmark"><small>Predio de vehículos</small><span>Impo Inversiones</span></div>
-  <button id="menuToggle" aria-label="Abrir menú" style="display:none;background:none;border:1px solid var(--line);color:var(--mist);width:40px;height:40px;border-radius:8px;font-size:20px;cursor:pointer;">☰</button>
-  <nav id="mainNav">
-    <ul>
-      <li><a href="#inventario">Inventario</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-    <div class="nav-buttons">
-      <a href="#contacto" class="nav-cta">Agendar visita</a>
-      <a href="https://wa.me/50239423690?text=Hola%2C%20quiero%20más%20información" target="_blank" class="nav-cta" style="background:transparent;border:1px solid var(--line);color:var(--mist);">Más información</a>
-    </div>
-  </nav>
 </div>
 </header>
+
+<button id="menuToggle" aria-label="Abrir menú" style="position:fixed;bottom:24px;left:24px;z-index:100;background:var(--panel);border:1px solid var(--line);color:var(--mist);width:52px;height:52px;border-radius:50%;font-size:22px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.4);">☰</button>
+<nav id="mainNav">
+  <ul>
+    <li><a href="#inventario">Inventario</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <div class="nav-buttons">
+    <a href="#contacto" class="nav-cta">Agendar visita</a>
+    <a href="https://wa.me/50239423690?text=Hola%2C%20quiero%20más%20información" target="_blank" class="nav-cta" style="background:transparent;border:1px solid var(--line);color:var(--mist);">Más información</a>
+  </div>
+</nav>
 
 <section class="hero">
   <div class="hero-inner">
@@ -255,10 +237,8 @@
     <h1>Vehículos listos<br>para <em>salir rodando</em>.</h1>
     <p>Inventario actualizado en tiempo real de las unidades que están físicamente en nuestro predio. Cada carro, con su precio, kilometraje y condición, sin sorpresas.</p>
     <div class="hero-actions">
-  <a href="#inventario" class="btn btn-primary">Ver inventario disponible</a>
-  <a href="https://wa.me/50239423690?text=Hola%2C%20quiero%20más%20información" target="_blank" class="btn btn-ghost">Más información</a>
-</div>
-    
+      <a href="#inventario" class="btn btn-primary">Ver inventario disponible</a>
+      <a href="https://wa.me/50239423690?text=Hola%2C%20quiero%20más%20información" target="_blank" class="btn btn-ghost">Más información</a>
     </div>
   </div>
   <div class="skyline"></div>
@@ -308,7 +288,7 @@
       <h4>Contacto</h4>
       <a href="tel:+50239423690">+502 3942-3690</a>
       <a href="mailto:impoinversioness.a@gmail.com">impoinversioness.a@gmail.com</a>
-<a href="https://wa.me/50239423690?text=Hola%2C%20quiero%20consultar%20sobre%20un%20carro" target="_blank">WhatsApp directo</a>
+      <a href="https://wa.me/50239423690?text=Hola%2C%20quiero%20consultar%20sobre%20un%20carro" target="_blank">WhatsApp directo</a>
     </div>
   </div>
   <div class="fine">
@@ -391,10 +371,10 @@ function render(){
           <span>${c.km.toLocaleString("es-GT")} km</span>
           <span>${c.trans}</span>
         </div>
-       <div class="price-row">
-  <span class="price mono">${fmtQ(c.precio)}</span>
-  <button class="card-cta" onclick="alert('Contacto: +502 3942-3690 para preguntar por el ${c.marca} ${c.modelo}')">Contactar</button>
-</div>
+        <div class="price-row">
+          <span class="price mono">${fmtQ(c.precio)}</span>
+          <button class="card-cta" onclick="alert('Contacto: +502 3942-3690 para preguntar por el ${c.marca} ${c.modelo}')">Contactar</button>
+        </div>
       </div>
     </div>
   `).join("") : `<div class="empty">No hay unidades que coincidan con esa búsqueda. Prueba con otro filtro.</div>`;
@@ -404,6 +384,7 @@ function render(){
   document.getElementById(id).addEventListener("input", render);
 });
 render();
+
 document.getElementById("menuToggle").addEventListener("click", ()=>{
   document.getElementById("mainNav").classList.toggle("open");
 });
