@@ -59,6 +59,8 @@
     display:block;font-family:'Manrope';font-weight:600;font-size:10px;
     letter-spacing:0.14em;color:var(--lilac);text-transform:uppercase;
   }
+  #mainNav{display:flex;align-items:center;gap:32px;}
+.nav-buttons{display:flex;gap:12px;align-items:center;}
   nav ul{list-style:none;display:flex;gap:32px;margin:0;padding:0;}
   nav a{font-size:14px;font-weight:600;color:var(--mist);opacity:0.8;transition:opacity .2s;}
   nav a:hover{opacity:1;}
@@ -210,25 +212,41 @@
   }
 
   @media (max-width:720px){
-    nav ul{display:none;}
-    .hero{padding:80px 20px 60px;}
-    .filters{position:static;}
-    .cta-strip{flex-direction:column;align-items:flex-start;}
+  #menuToggle{display:block !important;}
+  #mainNav{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    background:var(--panel);flex-direction:column;align-items:flex-start;
+    padding:20px 32px;gap:20px;border-bottom:1px solid var(--line);
   }
+  #mainNav.open{display:flex;}
+  nav ul{flex-direction:column;gap:16px;}
+  .nav-buttons{flex-direction:column;width:100%;}
+  .nav-buttons a{width:100%;text-align:center;}
+  header{position:sticky;}
+  .hero{padding:80px 20px 60px;}
+  .filters{position:static;}
+  .cta-strip{flex-direction:column;align-items:flex-start;}
+}
 </style>
 </head>
 <body>
 
 <div class="streak-bar"></div>
 <header>
-  <div class="nav-inner">
-    <div class="wordmark"><small>Predio de vehículos</small><span>Impo Inversiones</span></div>
-    <nav><ul>
+<div class="nav-inner">
+  <div class="wordmark"><small>Predio de vehículos</small><span>Impo Inversiones</span></div>
+  <button id="menuToggle" aria-label="Abrir menú" style="display:none;background:none;border:1px solid var(--line);color:var(--mist);width:40px;height:40px;border-radius:8px;font-size:20px;cursor:pointer;">☰</button>
+  <nav id="mainNav">
+    <ul>
       <li><a href="#inventario">Inventario</a></li>
       <li><a href="#contacto">Contacto</a></li>
-    </ul></nav>
-    <a href="#contacto" class="nav-cta">Agendar visita</a>
-  </div>
+    </ul>
+    <div class="nav-buttons">
+      <a href="#contacto" class="nav-cta">Agendar visita</a>
+      <a href="https://wa.me/50239423690?text=Hola%2C%20quiero%20más%20información" target="_blank" class="nav-cta" style="background:transparent;border:1px solid var(--line);color:var(--mist);">Más información</a>
+    </div>
+  </nav>
+</div>
 </header>
 
 <section class="hero">
@@ -386,6 +404,9 @@ function render(){
   document.getElementById(id).addEventListener("input", render);
 });
 render();
+document.getElementById("menuToggle").addEventListener("click", ()=>{
+  document.getElementById("mainNav").classList.toggle("open");
+});
 </script>
 </body>
 </html>
