@@ -188,6 +188,19 @@
   }
   .card-cta:hover{border-color:var(--coral);color:var(--coral);}
 
+  .policies{max-width:1180px;margin:0 auto;padding:0 32px 90px;}
+  .policy-grid{
+    display:grid;grid-template-columns:repeat(auto-fit, minmax(260px,1fr));gap:20px;
+  }
+  .policy-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    padding:22px;
+  }
+  .policy-card h3{
+    font-family:'Unbounded';font-size:16px;font-weight:700;color:var(--gold);margin-bottom:10px;
+  }
+  .policy-card p{font-size:13.5px;color:var(--lilac);line-height:1.6;margin:0;}
+
   .empty{
     grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--lilac);
   }
@@ -224,6 +237,7 @@
   <ul>
     <li><a href="#inventario">Inventario</a></li>
     <li><a href="#contacto">Contacto</a></li>
+    <li><a href="#politicas">Políticas</a></li>
   </ul>
   <div class="nav-buttons">
     <a href="#contacto" class="nav-cta">Agendar visita</a>
@@ -271,6 +285,34 @@
     <p>Todas disponibles para prueba de manejo esta semana. Precios en quetzales, negociables al contado.</p>
   </div>
   <div class="grid" id="grid"></div>
+</section>
+<section class="policies" id="politicas">
+  <div class="section-head">
+    <h2>Políticas de Impo Inversiones</h2>
+    <p>Antes de comprar, léelas — así ambas partes sabemos qué esperar.</p>
+  </div>
+  <div class="policy-grid">
+    <div class="policy-card">
+      <h3>Compra y reserva</h3>
+      <p>Los precios publicados están sujetos a cambio según la disponibilidad real en el predio. Para reservar un vehículo se requiere un abono del 10% del precio, no reembolsable, válido por 5 días hábiles mientras se completa la documentación. La entrega se realiza al finalizar el pago total o la aprobación del financiamiento.</p>
+    </div>
+    <div class="policy-card">
+      <h3>Garantía</h3>
+      <p>Los vehículos usados cuentan con garantía limitada de 30 días o 1,000 km (lo que ocurra primero) sobre motor y transmisión, siempre que no hayan sido modificados ni reciban mantenimiento fuera de talleres autorizados. Los vehículos nuevos mantienen la garantía de fábrica correspondiente.</p>
+    </div>
+    <div class="policy-card">
+      <h3>Documentación y traspaso</h3>
+      <p>El comprador debe presentar DPI vigente y, en caso de financiamiento, la documentación que solicite la entidad bancaria. Impo Inversiones gestiona el traspaso de placas dentro de los 15 días hábiles posteriores a la venta; los gastos corren por cuenta del comprador, salvo acuerdo distinto por escrito.</p>
+    </div>
+    <div class="policy-card">
+      <h3>Privacidad de datos</h3>
+      <p>Tu información (nombre, teléfono, correo, DPI) se usa únicamente para gestionar tu compra, financiamiento o seguimiento postventa. No vendemos ni compartimos tus datos con terceros ajenos al proceso de compra, salvo que la ley lo requiera.</p>
+    </div>
+    <div class="policy-card">
+      <h3>Precios y disponibilidad</h3>
+      <p>El inventario de este sitio se actualiza regularmente, pero un vehículo puede venderse antes de que la página refleje el cambio. Te recomendamos confirmar disponibilidad por WhatsApp o llamada antes de visitar el predio.</p>
+    </div>
+  </div>
 </section>
 
 <footer id="contacto">
