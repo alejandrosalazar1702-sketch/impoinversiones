@@ -351,6 +351,17 @@
   </div>
 </footer>
 
+<div id="contactModal" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;">
+  <div style="background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px;max-width:320px;width:90%;text-align:center;">
+    <p id="modalText" style="font-size:15px;color:var(--mist);margin:0 0 20px;"></p>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <a id="modalCall" href="#" style="background:var(--panel-2);border:1px solid var(--line);color:var(--mist);padding:12px;border-radius:999px;font-weight:700;font-size:14px;">Llamar</a>
+      <a id="modalWa" href="#" target="_blank" style="background:var(--streak);color:#1a0a05;padding:12px;border-radius:999px;font-weight:700;font-size:14px;">Escribir por WhatsApp</a>
+      <button onclick="document.getElementById('contactModal').style.display='none';" style="background:transparent;border:none;color:var(--lilac);font-size:13px;cursor:pointer;padding:6px;">Cerrar</button>
+    </div>
+  </div>
+</div>
+
 <script>
 const cars = [
   {marca:"Toyota", modelo:"Yaris", anio:2023, condicion:"Nuevo", precio:145000, km:8000, trans:"Automático", hue:328},
@@ -377,6 +388,13 @@ function carSVG(hue){
     <circle cx="50" cy="68" r="5" fill="#3a3040"/>
     <circle cx="150" cy="68" r="5" fill="#3a3040"/>
   </svg>`;
+}
+
+function openContactModal(carro){
+  document.getElementById("modalText").textContent = "¿Cómo prefieres contactarnos por el " + carro + "?";
+  document.getElementById("modalCall").href = "tel:+50239423690";
+  document.getElementById("modalWa").href = "https://wa.me/50239423690?text=" + encodeURIComponent("Hola, quiero preguntar por el " + carro);
+  document.getElementById("contactModal").style.display = "flex";
 }
 
 function fmtQ(n){ return "Q " + n.toLocaleString("es-GT"); }
@@ -427,7 +445,7 @@ function render(){
         </div>
         <div class="price-row">
           <span class="price mono">${fmtQ(c.precio)}</span>
-          <button class="card-cta" onclick="alert('Contacto: +502 3942-3690 para preguntar por el ${c.marca} ${c.modelo}')">Contactar</button>
+          <button class="card-cta" onclick="openContactModal('${c.marca} ${c.modelo}')">Contactar</button>
         </div>
       </div>
     </div>
