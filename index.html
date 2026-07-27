@@ -67,10 +67,11 @@
     font-weight:700;font-size:14px;white-space:nowrap;text-align:center;
   }
   #mainNav{
-    display:none;position:fixed;bottom:86px;left:24px;z-index:100;
-    background:var(--panel);border:1px solid var(--line);border-radius:14px;
-    padding:20px;flex-direction:column;align-items:flex-start;gap:16px;
-    box-shadow:0 8px 24px rgba(0,0,0,0.5);min-width:220px;
+  display:none;position:fixed;top:82px;right:24px;z-index:100;
+  background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  padding:20px;flex-direction:column;align-items:flex-start;gap:16px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.5);min-width:220px;
+}
   }
   #mainNav.open{display:flex;}
   .nav-buttons{display:flex;flex-direction:column;gap:12px;width:100%;}
@@ -238,7 +239,7 @@
 </div>
 </header>
 
-<button id="menuToggle" aria-label="Abrir menú" style="position:fixed;bottom:24px;left:24px;z-index:100;background:var(--panel);border:1px solid var(--line);color:var(--mist);width:52px;height:52px;border-radius:50%;font-size:22px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.4);">☰</button>
+<button id="menuToggle" aria-label="Abrir menú" style="position:fixed;top:20px;right:24px;z-index:100;background:var(--panel);border:1px solid var(--line);color:var(--mist);width:52px;height:52px;border-radius:50%;font-size:22px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.4);">☰</button>
 <nav id="mainNav">
   <ul>
     <li><a href="#inventario">Inventario</a></li>
