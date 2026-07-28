@@ -164,6 +164,30 @@
     .about-stats{grid-template-columns:repeat(3,1fr);}
   }
 
+  .services{max-width:1180px;margin:0 auto;padding:56px 32px 0;}
+  .services-grid{
+    display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:20px;
+  }
+  @media (max-width:900px){
+    .services-grid{grid-template-columns:repeat(2, minmax(0,1fr));}
+  }
+  @media (max-width:560px){
+    .services-grid{grid-template-columns:1fr;}
+  }
+  .service-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:18px;
+    padding:26px 22px;
+  }
+  .service-icon{
+    width:44px;height:44px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--streak);font-size:20px;margin-bottom:16px;
+  }
+  .service-card h3{
+    font-family:'Unbounded';font-size:16px;font-weight:700;margin-bottom:8px;
+  }
+  .service-card p{font-size:13.5px;color:var(--lilac);line-height:1.6;margin:0;}
+
   .inventory{max-width:1180px;margin:0 auto;padding:56px 32px 90px;}
   .section-head{margin-bottom:32px;}
   .section-head h2{font-size:28px;font-weight:700;}
@@ -262,6 +286,7 @@
 <nav id="mainNav">
   <ul>
     <li><a href="#nosotros">Quiénes somos</a></li>
+    <li><a href="#servicios">Servicios</a></li>
     <li><a href="#inventario">Inventario</a></li>
     <li><a href="#contacto">Contacto</a></li>
     <li><a href="#politicas">Políticas</a></li>
@@ -314,8 +339,62 @@
   <div class="about-grid">
     <div class="about-text">
       <p>En Impo Inversiones nos dedicamos a la importación y venta de vehículos nuevos y usados, ofreciendo unidades que puedes ver, revisar y probar directamente en nuestro predio, sin sorpresas ni intermediarios.</p>
-      <p>Trabajamos con procesos claros de compra, documentación y traspaso, acompañando a cada cliente desde la elección del vehículo hasta la entrega final, nuestro objetivo es que comprar un carro sea una experiencia simple, transparente y segura.</p>
+      <p>Trabajamos con procesos claros de compra, documentación y traspaso, acompañando a cada cliente desde la elección del vehículo hasta la entrega final. Nuestro objetivo es que comprar un carro sea una experiencia simple, transparente y segura.</p>
     </div>
+    <div class="about-stats">
+      <div class="stat-card">
+        <span class="stat-number">9+</span>
+        <span class="stat-label">Unidades en predio</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">7</span>
+        <span class="stat-label">Días de atención</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Documentación en regla</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicios">
+  <div class="section-head">
+    <h2>Servicios</h2>
+    <p>Todo lo que necesitas para comprar o traer tu vehículo, en un solo lugar.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🚗</div>
+      <h3>Importación de vehículos</h3>
+      <p>Traemos vehículos nuevos y usados desde subasta, gestionando todo el proceso de compra e importación hasta que llegan al predio.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🧾</div>
+      <h3>Documentación y traspaso</h3>
+      <p>Gestionamos el traspaso de placas y toda la papelería legal para que el vehículo quede a tu nombre sin complicaciones.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💳</div>
+      <h3>Asesoría en financiamiento</h3>
+      <p>Te orientamos con los requisitos y el proceso ante bancos y financieras para que tu compra en cuotas sea más rápida.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔧</div>
+      <h3>Revisión mecánica</h3>
+      <p>Cada unidad se revisa antes de ponerse a la venta, para que sepas exactamente en qué condición está el vehículo.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📍</div>
+      <h3>Visita al predio</h3>
+      <p>Agenda una cita para ver, probar y comparar los vehículos disponibles en persona, sin compromiso de compra.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💬</div>
+      <h3>Atención por WhatsApp</h3>
+      <p>Resolvemos tus dudas sobre precios, disponibilidad y condiciones directamente por WhatsApp, sin necesidad de visitar primero.</p>
+    </div>
+  </div>
 </section>
 
 <section class="inventory">
