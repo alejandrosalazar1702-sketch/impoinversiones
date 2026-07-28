@@ -67,11 +67,10 @@
     font-weight:700;font-size:14px;white-space:nowrap;text-align:center;
   }
   #mainNav{
-  display:none;position:fixed;top:82px;right:24px;z-index:100;
-  background:var(--panel);border:1px solid var(--line);border-radius:14px;
-  padding:20px;flex-direction:column;align-items:flex-start;gap:16px;
-  box-shadow:0 8px 24px rgba(0,0,0,0.5);min-width:220px;
-}
+    display:none;position:fixed;top:82px;right:24px;z-index:100;
+    background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:20px;flex-direction:column;align-items:flex-start;gap:16px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.5);min-width:220px;
   }
   #mainNav.open{display:flex;}
   .nav-buttons{display:flex;flex-direction:column;gap:12px;width:100%;}
@@ -146,6 +145,25 @@
   }
   .count-tag b{color:var(--gold);}
 
+  .about{max-width:1180px;margin:0 auto;padding:56px 32px 0;}
+  .about-grid{
+    display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:start;
+  }
+  .about-text p{color:var(--lilac);font-size:15px;line-height:1.7;margin:0 0 16px;}
+  .about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    padding:20px 14px;text-align:center;
+  }
+  .stat-number{
+    display:block;font-family:'Unbounded';font-size:26px;font-weight:800;color:var(--gold);
+  }
+  .stat-label{display:block;font-size:11.5px;color:var(--lilac);margin-top:6px;}
+  @media (max-width:800px){
+    .about-grid{grid-template-columns:1fr;}
+    .about-stats{grid-template-columns:repeat(3,1fr);}
+  }
+
   .inventory{max-width:1180px;margin:0 auto;padding:56px 32px 90px;}
   .section-head{margin-bottom:32px;}
   .section-head h2{font-size:28px;font-weight:700;}
@@ -191,14 +209,14 @@
 
   .policies{max-width:1180px;margin:0 auto;padding:0 32px 90px;}
   .policy-grid{
-  display:grid;grid-template-columns:repeat(5, minmax(0,1fr));gap:16px;
-}
-@media (max-width:1000px){
-  .policy-grid{grid-template-columns:repeat(2, minmax(0,1fr));}
-}
-@media (max-width:560px){
-  .policy-grid{grid-template-columns:1fr;}
-}
+    display:grid;grid-template-columns:repeat(5, minmax(0,1fr));gap:16px;
+  }
+  @media (max-width:1000px){
+    .policy-grid{grid-template-columns:repeat(2, minmax(0,1fr));}
+  }
+  @media (max-width:560px){
+    .policy-grid{grid-template-columns:1fr;}
+  }
   .policy-card{
     background:var(--panel);border:1px solid var(--line);border-radius:16px;
     padding:22px;
@@ -219,6 +237,7 @@
   }
   .footer-col p, .footer-col a{font-size:13.5px;color:var(--lilac);display:block;margin-bottom:10px;}
   .footer-col h4{font-size:13px;text-transform:uppercase;letter-spacing:0.1em;color:var(--mist);margin-bottom:14px;font-family:'Manrope';font-weight:700;}
+  .maps-links{display:flex;gap:14px;margin-top:-4px;}
   .fine{
     max-width:1180px;margin:32px auto 0;padding-top:20px;border-top:1px solid var(--line);
     font-size:12px;color:var(--lilac);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
@@ -242,6 +261,7 @@
 <button id="menuToggle" aria-label="Abrir menú" style="position:fixed;top:20px;right:24px;z-index:100;background:var(--panel);border:1px solid var(--line);color:var(--mist);width:52px;height:52px;border-radius:50%;font-size:22px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.4);">☰</button>
 <nav id="mainNav">
   <ul>
+    <li><a href="#nosotros">Quiénes somos</a></li>
     <li><a href="#inventario">Inventario</a></li>
     <li><a href="#contacto">Contacto</a></li>
     <li><a href="#politicas">Políticas</a></li>
@@ -286,6 +306,33 @@
   </div>
 </div>
 
+<section class="about" id="nosotros">
+  <div class="section-head">
+    <h2>Quiénes somos</h2>
+    <p>Importación y venta de vehículos con presencia física en predio.</p>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>En Impo Inversiones nos dedicamos a la importación y venta de vehículos nuevos y usados, ofreciendo unidades que puedes ver, revisar y probar directamente en nuestro predio, sin sorpresas ni intermediarios.</p>
+      <p>Trabajamos con procesos claros de compra, documentación y traspaso, acompañando a cada cliente desde la elección del vehículo hasta la entrega final. Nuestro objetivo es que comprar un carro sea una experiencia simple, transparente y segura.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card">
+        <span class="stat-number">9+</span>
+        <span class="stat-label">Unidades en predio</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">7</span>
+        <span class="stat-label">Días de atención</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Documentación en regla</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="inventory">
   <div class="section-head">
     <h2>Unidades en predio</h2>
@@ -293,6 +340,7 @@
   </div>
   <div class="grid" id="grid"></div>
 </section>
+
 <section class="policies" id="politicas">
   <div class="section-head">
     <h2>Políticas de Impo Inversiones</h2>
@@ -331,11 +379,10 @@
     <div class="footer-col">
       <h4>Predio</h4>
       <p>5ta calle 1ra avenida, <br>zona 5 de mixco colonia santa Marta</p>
-      <p style="display:flex;gap:14px;margin-top:-4px;">
-  <a href="https://www.google.com/maps/search/?api=1&query=14.660524,-90.580814" target="_blank">Ver en Google Maps</a>
-  <a href="https://waze.com/ul?ll=14.660524,-90.580814&navigate=yes" target="_blank">Abrir en Waze</a>
-</p>
-</p>
+      <p class="maps-links">
+        <a href="https://www.google.com/maps/search/?api=1&query=14.660524,-90.580814" target="_blank">Ver en Google Maps</a>
+        <a href="https://waze.com/ul?ll=14.660524,-90.580814&navigate=yes" target="_blank">Abrir en Waze</a>
+      </p>
       <p>Lunes a Domingo, 7:00 – 18:00</p>
     </div>
     <div class="footer-col">
@@ -345,11 +392,11 @@
       <a href="https://wa.me/50239423690?text=Hola%2C%20quiero%20consultar%20sobre%20un%20carro" target="_blank">WhatsApp directo</a>
     </div>
     <div class="footer-col">
-  <h4>Redes sociales</h4>
-  <a hre<a href="https://www.facebook.com/share/17joktP6iQ/?mibextid=wwXIfr" target="_blank">Facebook</a>
-<a href="https://www.instagram.com/impoinversiones_s.a?igsh=ZnI3ODc5Y3NsdXo%3D&utm_source=qr" target="_blank">Instagram</a>
-<a href="https://www.tiktok.com/@impoinversiones.s?_r=1&_t=ZS-98O4oTMnFLB" target="_blank">TikTok</a>
-</div>
+      <h4>Redes sociales</h4>
+      <a href="https://www.facebook.com/share/17joktP6iQ/?mibextid=wwXIfr" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/impoinversiones_s.a?igsh=ZnI3ODc5Y3NsdXo%3D&utm_source=qr" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@impoinversiones.s?_r=1&_t=ZS-98O4oTMnFLB" target="_blank">TikTok</a>
+    </div>
   </div>
   <div class="fine">
     <span>© 2026 Impo Inversiones. Todos los derechos reservados.</span>
